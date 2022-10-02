@@ -5,13 +5,13 @@
 // положительных чисел равна 29, сумма отрицательных равна
 // -20.
 
-void FillArray(int[] arr)
+void FillArray(int[] arr, int min=0, int max=100)
 {
     Random random = new Random();
-
+    max++;
     for (int i=0;i<arr.Length;i++)
     {
-        arr[i] = random.Next(-9,10);
+        arr[i] = random.Next(min,max);
     }
 }
 
@@ -53,7 +53,7 @@ int GetSumNegative(int[] arr)
 int size = 12;
 int[] numbers = new int[size];
 
-FillArray(numbers);
+FillArray(numbers,-9,9);
 PrintArray(numbers);
 
 Console.WriteLine("Summ positive = "+GetSumPositive(numbers));
