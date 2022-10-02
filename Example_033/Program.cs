@@ -22,18 +22,26 @@ void PrintArray(int[] arr)
      Console.WriteLine();
 }
 
-int FindValue(int[] arr,int value)
+void FindValue(int[] arr,int value)
 {
-    int index = -1;
-    for (int i=0;i<arr.Length;i++)
+    bool flag = false;
+    int i = 0;
+    while ((!flag)&&(i<arr.Length))
     {
         if (arr[i] == value)
         {
-            index = i;
-            break;
+            flag = true;
         }
+        i++;
     }
-    return index;
+    if (flag)
+    {
+        Console.WriteLine($"Число {value} есть в массиве");
+    }
+    else
+    {
+        Console.WriteLine($"Числа {value} нет в массиве");
+    }
 }
 
 int size = 12;
@@ -44,13 +52,5 @@ int searchValue = Convert.ToInt32(Console.ReadLine());
 
 FillArray(numbers,-9,9);
 PrintArray(numbers);
+FindValue(numbers,searchValue);
 
-int isFound = FindValue(numbers,searchValue);
-if (isFound<0)
-{
-    Console.WriteLine($"Числа {searchValue} нет в массиве");
-}
-else
-{
-    Console.WriteLine($"Число {searchValue} есть в массиве");
-}
