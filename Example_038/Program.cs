@@ -12,7 +12,7 @@ void FillArray(double[] arr, int min=-100, int max=100)
 
     for (int i=0;i<arr.Length;i++)
     {
-        arr[i] = random.Next(-1000,1001)/100d;
+        arr[i] = random.Next(min,max)/100d;
     }
 }
 
@@ -44,6 +44,10 @@ double FindDiffMaxMin(double[] arr)
     }
     diff = max - min;
 
+    Console.WriteLine("Максимальный элементам массива = " + max);
+    Console.WriteLine("Минимальный элемент массива = " + min);
+    Console.WriteLine("Разница между максимальным и минимальным элементами массива = " + Math.Round(diff,2));
+
     return diff;
 }
 
@@ -52,9 +56,8 @@ int size = random.Next(5,11);
 
 double[] numbers = new double[size];
 
-FillArray(numbers,-100,101);
+FillArray(numbers,-1000,1001);
 PrintArray(numbers);
 
 double diff = FindDiffMaxMin(numbers);
-Console.WriteLine("Разница между максимальным и минимальным элементами массива = " + Math.Round(diff,2));
 
